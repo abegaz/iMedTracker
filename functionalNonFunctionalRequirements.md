@@ -22,3 +22,7 @@
 4. Ability to customize the interface (via accent colors, movement of panels, etc.).
 5. Accessibility options (such as narrator).
 6. Refill notifications/emails should be sent out 48 hours ahead of the estimated time when the dosage would run out.
+
+# Professor Feedback:
+FRs 5, 6 ,7, 14 should be categorized under the NFRs
+You can start working on your user stories
