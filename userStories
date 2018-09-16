@@ -1,0 +1,6 @@
+As a user, I would like to enter in all the information about my medication so that I can have it all in one place that is easy to access.
+As a user, I would like to be able to schedule when to take a medicine or when to refill it in my calendar so that I can easily remember.
+As a user, I would like to receive notifications to take a dose, get a refill or to go to an appointment so that I will not forget.
+As a user, I would like to be able to receive notifications through email so that I will still get them if my phone is dead or on silent.
+As a developer, I would like to store all user information in a secure database so that I will have easy access to it and not risk the information being accessed by an unauthorized user.
+As a developer, I would like to implement secure login practices so that should user data be leaked, it will be encrypted and therefore unusable.
