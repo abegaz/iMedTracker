@@ -1,5 +1,6 @@
 package imedtracker.csci3300.csci.mccb.ung.edu.imedtracker;
 
+
 public class MedModel{
     private String medName;
     private int doseCount;
@@ -67,4 +68,3 @@ public class MedModel{
                 '}';
     }
 }
-

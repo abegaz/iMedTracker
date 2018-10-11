@@ -6,4 +6,9 @@
     android:layout_height="match_parent"
     tools:context="imedtracker.csci3300.csci.mccb.ung.edu.imedtracker.MyMedController">
 
+    <ListView
+        android:id="@+id/myMedListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></ListView>
+
 </android.support.constraint.ConstraintLayout>

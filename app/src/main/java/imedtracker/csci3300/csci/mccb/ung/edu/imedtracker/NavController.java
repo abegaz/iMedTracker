@@ -86,11 +86,14 @@ public class NavController extends AppCompatActivity
             Intent myMedIntent = new Intent(this, MyMedController.class);
             startActivity(myMedIntent);
         }
+        else if (id == R.id.nav_add_med) {
+            Intent addMedIntent = new Intent(this, AddMedController.class);
+            startActivity(addMedIntent);
+        }
         else if (id == R.id.nav_calendar) {
             Intent calendarIntent = new Intent(this, CalendarController.class);
             startActivity(calendarIntent);
         }
-
         else if (id == R.id.nav_settings) {
             Intent settingsIntent = new Intent(this, SettingsController.class);
             startActivity(settingsIntent);

@@ -16,12 +16,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     // Database Name
     private static final String DATABASE_NAME = "iMedTrackerDB";
+
     // Database Version
     private static final int DATABASE_VERSION = 2;
+
     // Table Names
     private static final String TABLE_USER = "user";
+    private static final String TABLE_MED = "med";
+
     //  create  Tables for User
     private static final String CREATE_TABLE_USER = "CREATE TABLE "  + TABLE_USER+ " (USERID INTEGER PRIMARY KEY AUTOINCREMENT, FIRSTNAME TEXT, LASTNAME TEXT, EMAIL TEXT, PASSWORD TEXT)";
+    private static final String CREATE_TABLE_MED = "CREATE TABLE "  + TABLE_MED+ " (MEDID INTEGER PRIMARY KEY AUTOINCREMENT, MEDNAME TEXT, DOSECOUNT INT, DOESFREQUENCY INT)";
+
     // Link by Username
 
     public DatabaseHelper(Context context) {
@@ -32,12 +38,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         // creating required tables
         sqLiteDatabase.execSQL(CREATE_TABLE_USER);
+        sqLiteDatabase.execSQL(CREATE_TABLE_MED);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
         // on upgrade drop older tables
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_USER);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_MED);
         // create new tables
         onCreate(sqLiteDatabase);
     }
@@ -91,4 +99,51 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return true;
     }
 
+    // MED TABLE METHODS //
+
+    public boolean insertMed(MedModel med) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("MEDNAME", med.getMedName());
+        values.put("DOSECOUNT", med.getDoseCount());
+        values.put("DOSEFREQUENCY", med.getDoseFrequency());
+        long result = db.insert(TABLE_MED, null, values);
+        if(result == -1)
+            return false;
+        else
+            return true;
+    }
+
+    public Boolean getMedInfo(MedModel med) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "Select MEDNAME, DOSECOUNT, DOSEFREQUENCY FROM " + TABLE_MED + " WHERE MEDNAME = '"+med.getMedName()+"'";
+        Cursor resultSet = db.rawQuery(query, null);
+        if(resultSet.getCount()== 0)
+            return false;
+        else
+            return true;
+        //resultSet.close();
+    }
+
+    public List<MedModel> getAllMeds() {
+        List<MedModel> medList = new ArrayList<MedModel>();
+        String selectQuery = "SELECT  * FROM " + TABLE_MED;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor resultSet = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (resultSet.moveToFirst()) {
+            do {
+                MedModel med = new MedModel();
+                med.setMedId((resultSet.getInt(resultSet.getColumnIndex("MEDID"))));
+                med.setMedName((resultSet.getString(resultSet.getColumnIndex("MEDNAME"))));
+                med.setDoseCount((resultSet.getInt(resultSet.getColumnIndex("DOSECOUNT"))));
+                med.setDoseFrequency((resultSet.getInt(resultSet.getColumnIndex("DOSEFREQUENCY"))));
+                // adding to med list
+                medList.add(med);
+            } while (resultSet.moveToNext());
+        }
+
+        return medList;
+    }
 }

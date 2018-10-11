@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:gravity="center_vertical|center_horizontal"
+    android:rowCount="3"
+    android:columnCount="1"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="imedtracker.csci3300.csci.mccb.ung.edu.imedtracker.AddMedController">
+
+    <EditText
+        android:id="@+id/txtMedName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Name of Medication"
+        android:inputType="text"/>
+    <EditText
+        android:id="@+id/txtDoseCount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Number of Doses"
+        android:inputType="number"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dose Frequency: "
+        android:textSize="20sp" />
+    <Spinner
+        android:id="@+id/spinnerFrequency"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/doseFrequencyOptions"
+        android:drawSelectorOnTop="true" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="Add Medication"
+        android:onClick="touchAddMed" />
+
+</LinearLayout>
