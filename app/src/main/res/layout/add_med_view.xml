@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:gravity="center_vertical|center_horizontal"
     android:rowCount="3"
@@ -8,6 +7,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
     tools:context="imedtracker.csci3300.csci.mccb.ung.edu.imedtracker.AddMedController">
 
     <EditText
@@ -15,29 +15,36 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter Name of Medication"
-        android:inputType="text"/>
+        android:inputType="text"
+        android:textColor="#FFFF"
+        android:textColorHint="#FFFF" />
     <EditText
         android:id="@+id/txtDoseCount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter Number of Doses"
-        android:inputType="number"/>
+        android:inputType="number"
+        android:textColor="#FFFF" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Dose Frequency: "
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:textColor="#FFFF"
+        android:textColorHint="#FFFF" />
     <Spinner
         android:id="@+id/spinnerFrequency"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:entries="@array/doseFrequencyOptions"
-        android:drawSelectorOnTop="true" />
+        android:drawSelectorOnTop="true"
+        android:spinnerMode="dialog"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="8dp"
         android:text="Add Medication"
-        android:onClick="touchAddMed" />
+        android:onClick="touchAddMed"
+        android:background="@color/colorAccent" />
 
 </LinearLayout>
