@@ -37,10 +37,12 @@ public class PillModel {
     }
 
     public int getDoseFrequency() {
+
         return doseFrequency;
     }
 
     public void setDoseFrequency(int doseFrequency) {
+
         this.doseFrequency = doseFrequency;
     }
 
@@ -57,7 +59,7 @@ public class PillModel {
 
     @Override
     public String toString() {
-        return "PollModel{" +
+        return "PillModel{" +
                 "pillName='" + pillName + '\'' +
                 "doseCount='" + doseCount + '\'' +
                 "doseFrequency='" + doseFrequency + '\'' +
