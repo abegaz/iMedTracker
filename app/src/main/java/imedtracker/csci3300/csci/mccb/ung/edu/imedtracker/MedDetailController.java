@@ -11,13 +11,13 @@ public class MedDetailController extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.med_detail_view);
         Intent intent = getIntent();
-        String medName = intent.getStringExtra("medName");
+        String pillName = intent.getStringExtra("pillName");
         String doseCount = intent.getStringExtra("doseCount");
         String doseFrequency = intent.getStringExtra("doseFrequency");
-        TextView lblMedName = findViewById(R.id.lblMedName);
+        TextView lblPillName = findViewById(R.id.lblPillName);
         TextView lblDoseCount = findViewById(R.id.lblDoseCount);
         TextView lblDoseFrequency = findViewById(R.id.lblDoseFrequency);
-        lblMedName.setText(medName);
+        lblPillName.setText(pillName);
         lblDoseCount.setText(doseCount);
         lblDoseFrequency.setText(doseFrequency);
     }

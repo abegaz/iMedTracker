@@ -24,7 +24,8 @@
         android:layout_height="wrap_content"
         android:hint="Enter Number of Doses"
         android:inputType="number"
-        android:textColor="#FFFF" />
+        android:textColor="#FFFF"
+        android:textColorHint="#FFFF" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
