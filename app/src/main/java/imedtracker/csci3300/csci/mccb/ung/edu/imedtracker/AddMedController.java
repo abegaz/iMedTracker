@@ -19,9 +19,9 @@ public class AddMedController extends AppCompatActivity {
     }
 
     public void touchAddMed(View view) {
-        MedModel med = new MedModel();
-        DatabaseHelper dbMed = new DatabaseHelper(this);
-        EditText txtMedName = findViewById(R.id.txtMedName);
+        PillModel pill = new PillModel();
+        DatabaseHelper dbPill = new DatabaseHelper(this);
+        EditText txtPillName = findViewById(R.id.txtPillName);
         EditText txtDoseCount = findViewById(R.id.txtDoseCount);
         Spinner spinnerFrequency = findViewById(R.id.spinnerFrequency);
         switch (spinnerFrequency.getSelectedItem().toString())
@@ -87,12 +87,12 @@ public class AddMedController extends AppCompatActivity {
                 freqValue = 336;
             }
         }
-        med.setMedName(txtMedName.getText().toString());
-        med.setDoseCount(Integer.parseInt(txtDoseCount.getText().toString()));
-        med.setDoseFrequency(freqValue);
-        Boolean isAdded = dbMed.insertMed(med);
+        pill.setPillName(txtPillName.getText().toString());
+        pill.setDoseCount(Integer.parseInt(txtDoseCount.getText().toString()));
+        pill.setDoseFrequency(freqValue);
+        Boolean isAdded = dbPill.insertPill(pill);
         if (isAdded) {
-            Toast.makeText(this, "Medication added successfully.", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Pill is added successfully.", Toast.LENGTH_LONG).show();
             Intent navIntent = new Intent(this, NavController.class);
             startActivity(navIntent);
         }
@@ -101,3 +101,4 @@ public class AddMedController extends AppCompatActivity {
         }
     }
 }
+

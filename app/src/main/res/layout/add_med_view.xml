@@ -11,7 +11,7 @@
     tools:context="imedtracker.csci3300.csci.mccb.ung.edu.imedtracker.AddMedController">
 
     <EditText
-        android:id="@+id/txtMedName"
+        android:id="@+id/txtPillName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter Name of Medication"

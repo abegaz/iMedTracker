@@ -5,28 +5,27 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     // Database Name
-    private static final String DATABASE_NAME = "iMedTrackerDB";
-
+    private static final String DATABASE_NAME = "PillDB";
     // Database Version
     private static final int DATABASE_VERSION = 2;
-
     // Table Names
     private static final String TABLE_USER = "user";
-    private static final String TABLE_MED = "med";
-
+    private static final String TABLE_PILL = "pill";
     //  create  Tables for User
     private static final String CREATE_TABLE_USER = "CREATE TABLE "  + TABLE_USER+ " (USERID INTEGER PRIMARY KEY AUTOINCREMENT, FIRSTNAME TEXT, LASTNAME TEXT, EMAIL TEXT, PASSWORD TEXT)";
-    private static final String CREATE_TABLE_MED = "CREATE TABLE "  + TABLE_MED+ " (MEDID INTEGER PRIMARY KEY AUTOINCREMENT, MEDNAME TEXT, DOSECOUNT INT, DOESFREQUENCY INT)";
-
+    private static final String CREATE_TABLE_PILL = "CREATE TABLE "  + TABLE_PILL+ " (PILLID INTEGER PRIMARY KEY AUTOINCREMENT, PILLNAME TEXT, DOSECOUNT INT, DOSEFREQUENCY INT)";
     // Link by Username
 
     public DatabaseHelper(Context context) {
@@ -37,14 +36,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         // creating required tables
         sqLiteDatabase.execSQL(CREATE_TABLE_USER);
-        sqLiteDatabase.execSQL(CREATE_TABLE_MED);
+        sqLiteDatabase.execSQL(CREATE_TABLE_PILL);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
         // on upgrade drop older tables
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_USER);
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_MED);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_PILL);
         // create new tables
         onCreate(sqLiteDatabase);
     }
@@ -98,24 +97,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return true;
     }
 
-    // MED TABLE METHODS //
 
-    public boolean insertMed(MedModel med) {
+    // PILL TABLE METHODS //
+
+    public boolean insertPill(PillModel pill) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put("MEDNAME", med.getMedName());
-        values.put("DOSECOUNT", med.getDoseCount());
-        values.put("DOSEFREQUENCY", med.getDoseFrequency());
-        long result = db.insert(TABLE_MED, null, values);
+        values.put("PILLNAME", pill.getPillName());
+        values.put("DOSECOUNT", pill.getDoseCount());
+        values.put("DOSEFREQUENCY", pill.getDoseFrequency());
+        long result = db.insert(TABLE_PILL, null, values);
         if(result == -1)
             return false;
         else
             return true;
     }
 
-    public Boolean getMedInfo(MedModel med) {
+    public Boolean getPillInfo(PillModel pill) {
         SQLiteDatabase db = this.getReadableDatabase();
-        String query = "Select MEDNAME, DOSECOUNT, DOSEFREQUENCY FROM " + TABLE_MED + " WHERE MEDNAME = '"+med.getMedName()+"'";
+        String query = "Select PILLNAME, DOSECOUNT, DOSEFREQUENCY FROM " + TABLE_PILL + " WHERE PILLNAME = '"+pill.getPillName()+"'";
         Cursor resultSet = db.rawQuery(query, null);
         if(resultSet.getCount()== 0)
             return false;
@@ -124,25 +124,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         //resultSet.close();
     }
 
-    public List<MedModel> getAllMeds() {
-        List<MedModel> medList = new ArrayList<MedModel>();
-        String selectQuery = "SELECT  * FROM " + TABLE_MED;
+    public List<PillModel> getAllPills() {
+        List<PillModel> pillList = new ArrayList<PillModel>();
+        String selectQuery = "SELECT  * FROM " + TABLE_PILL;
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor resultSet = db.rawQuery(selectQuery, null);
 
         // looping through all rows and adding to list
         if (resultSet.moveToFirst()) {
             do {
-                MedModel med = new MedModel();
-                med.setMedId((resultSet.getInt(resultSet.getColumnIndex("MEDID"))));
-                med.setMedName((resultSet.getString(resultSet.getColumnIndex("MEDNAME"))));
-                med.setDoseCount((resultSet.getInt(resultSet.getColumnIndex("DOSECOUNT"))));
-                med.setDoseFrequency((resultSet.getInt(resultSet.getColumnIndex("DOSEFREQUENCY"))));
-                // adding to med list
-                medList.add(med);
+                PillModel pill = new PillModel();
+                pill.setPillId((resultSet.getInt(resultSet.getColumnIndex("PILLID"))));
+                pill.setPillName((resultSet.getString(resultSet.getColumnIndex("PILLNAME"))));
+                pill.setDoseCount((resultSet.getInt(resultSet.getColumnIndex("DOSECOUNT"))));
+                pill.setDoseFrequency((resultSet.getInt(resultSet.getColumnIndex("DOSEFREQUENCY"))));
+                // adding to pill list
+                pillList.add(pill);
             } while (resultSet.moveToNext());
         }
 
-        return medList;
+        return pillList;
     }
+
 }

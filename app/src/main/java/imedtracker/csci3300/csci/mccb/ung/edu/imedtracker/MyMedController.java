@@ -21,18 +21,18 @@ public class MyMedController extends AppCompatActivity {
         setContentView(R.layout.my_med_view);
         setTitle("My Medications");
 
-        final ArrayList<String> medName = new ArrayList<>();
+        final ArrayList<String> pillName = new ArrayList<>();
         final ArrayList<Integer> doseCount = new ArrayList<>();
         final ArrayList<Integer> doseFrequency = new ArrayList<>();
-        DatabaseHelper dbMed = new DatabaseHelper(this);
-        final List<MedModel> medList = dbMed.getAllMeds();
-        for(MedModel med1:  medList)
+        DatabaseHelper dbPill = new DatabaseHelper(this);
+        final List<PillModel> pillList = dbPill.getAllPills();
+        for(PillModel pill1:  pillList)
         {
-            medName.add(med1.getMedName());
-            doseCount.add(med1.getDoseCount());
-            doseFrequency.add(med1.getDoseCount());
+            pillName.add(pill1.getPillName());
+            doseCount.add(pill1.getDoseCount());
+            doseFrequency.add(pill1.getDoseCount());
         }
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, medName);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, pillName);
         ListView listView = (ListView) findViewById(R.id.myMedListView);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
@@ -40,12 +40,12 @@ public class MyMedController extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                Toast.makeText(MyMedController.this, medName.toString(),  Toast.LENGTH_LONG).show();
+                Toast.makeText(MyMedController.this, pillName.toString(),  Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(MyMedController.this, MedDetailController.class);
-                String tokenMedName = medName.get(position).toString();
-                String tokenDoseCount = doseCount.get(position).toString();
-                String tokenDoseFrequency = doseFrequency.get(position).toString();
-                intent.putExtra("medName", tokenMedName);
+                String tokenPillName = pillName.get(position).toString();
+                Integer tokenDoseCount = Integer.parseInt(doseCount.get(position).toString());
+                Integer tokenDoseFrequency = Integer.parseInt(doseFrequency.get(position).toString());
+                intent.putExtra("pillName", tokenPillName);
                 intent.putExtra("doseCount", tokenDoseCount);
                 intent.putExtra("doseFrequency", tokenDoseFrequency);
                 startActivity(intent);
