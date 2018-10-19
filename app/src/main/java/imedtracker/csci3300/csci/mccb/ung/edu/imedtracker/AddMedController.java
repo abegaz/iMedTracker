@@ -23,7 +23,7 @@ public class AddMedController extends AppCompatActivity {
         DatabaseHelper dbPill = new DatabaseHelper(this);
         EditText txtPillName = findViewById(R.id.txtPillName);
         EditText txtDoseCount = findViewById(R.id.txtDoseCount);
-        Spinner spinnerFrequency = findViewById(R.id.spinnerFrequency);
+        Spinner spinnerFrequency = findViewById(R.id.doseFrequency);
         switch (spinnerFrequency.getSelectedItem().toString())
         {
             case "1 Hour":

@@ -18,7 +18,8 @@ public class MedDetailController extends AppCompatActivity {
         TextView lblDoseCount = findViewById(R.id.lblDoseCount);
         TextView lblDoseFrequency = findViewById(R.id.lblDoseFrequency);
         lblPillName.setText(pillName);
-        lblDoseCount.setText(doseCount);
-        lblDoseFrequency.setText(doseFrequency);
+        lblDoseCount.setText(doseCount + " doses left");
+        lblDoseFrequency.setText(doseFrequency + " hour does frequency");
+        setTitle(pillName + " Details");
     }
 }
