@@ -17,6 +17,7 @@
         android:layout_marginBottom="8dp"
         android:textAlignment="center"
         android:layout_marginTop="8dp"
+        android:textSize="25dp"
         android:text="TextView" />
 
     <TextView
@@ -26,6 +27,7 @@
         android:layout_marginBottom="8dp"
         android:textAlignment="center"
         android:layout_marginTop="8dp"
+        android:textSize="25dp"
         android:text="TextView2" />
 
     <TextView
@@ -35,6 +37,7 @@
         android:layout_marginBottom="8dp"
         android:textAlignment="center"
         android:layout_marginTop="8dp"
+        android:textSize="25dp"
         android:text="TextView3" />
 
 </LinearLayout>
