@@ -38,7 +38,6 @@ public class MyMedController extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                Toast.makeText(MyMedController.this, pillName.toString(),  Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(MyMedController.this, MedDetailController.class);
                 String tokenPillName = pillName.get(position).toString();
                 String tokenDoseCount = doseCount.get(position).toString();
