@@ -7,7 +7,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
     tools:context="imedtracker.csci3300.csci.mccb.ung.edu.imedtracker.AddMedController">
 
     <EditText
@@ -15,37 +14,30 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter Name of Medication"
-        android:inputType="text"
-        android:textColor="#FFFF"
-        android:textColorHint="#FFFF" />
+        android:inputType="text"/>
     <EditText
         android:id="@+id/txtDoseCount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter Number of Doses"
-        android:inputType="number"
-        android:textColor="#FFFF"
-        android:textColorHint="#FFFF" />
+        android:inputType="number"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Dose Frequency: "
-        android:textSize="20sp"
-        android:textColor="#FFFF"
-        android:textColorHint="#FFFF" />
+        android:textSize="20sp" />
     <Spinner
         android:id="@+id/spinnerFrequency"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:entries="@array/doseFrequencyOptions"
-        android:drawSelectorOnTop="true"
-        android:spinnerMode="dialog"/>
+        android:drawSelectorOnTop="true" />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="8dp"
         android:text="Add Medication"
         android:onClick="touchAddMed"
-        android:background="@color/colorAccent" />
+        android:background="@color/colorAccent"/>
 
 </LinearLayout>
