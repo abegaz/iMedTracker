@@ -21,7 +21,7 @@ public class NavController extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nav_controller);
-        setTitle("Welcome, " + UserModel.getFirstName());
+        setTitle("Welcome!");
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 

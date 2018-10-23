@@ -12,8 +12,6 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     // Database Name

@@ -1,43 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:gravity="center_vertical|center_horizontal"
-    android:rowCount="3"
+    android:rowCount="4"
     android:columnCount="1"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient"
     tools:context="imedtracker.csci3300.csci.mccb.ung.edu.imedtracker.AddMedController">
 
     <EditText
         android:id="@+id/txtPillName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter Name of Medication"
-        android:inputType="text"/>
+        android:layout_width="225dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:background="#11000000"
+        android:drawableLeft="@drawable/add_med"
+        android:ems="10"
+        android:hint="@string/nameMed"
+        android:inputType="text"
+        android:textColorHint="#d6d6d6"
+        android:textColor="#d6d6d6"
+        android:textSize="16sp" />
+
     <EditText
         android:id="@+id/txtDoseCount"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter Number of Doses"
-        android:inputType="number"/>
+        android:layout_width="225dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="20dp"
+        android:background="#11000000"
+        android:drawableLeft="@drawable/add_dose"
+        android:ems="10"
+        android:hint="@string/numDoses"
+        android:inputType="number"
+        android:textColorHint="#d6d6d6"
+        android:textColor="#d6d6d6"
+        android:textSize="16sp" />
+
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="225dp"
         android:layout_height="wrap_content"
+        android:ems="10"
         android:text="Dose Frequency: "
-        android:textSize="20sp" />
+        android:textColor="#d6d6d6"
+        android:textSize="16sp" />
+
     <Spinner
-        android:id="@+id/spinnerFrequency"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:id="@+id/doseFrequency"
+        android:layout_width="225dp"
+        android:layout_height="40dp"
+        android:background="#d6d6d6"
+        android:textSize="16sp"
+        android:ems="10"
+        android:spinnerMode="dropdown"
         android:entries="@array/doseFrequencyOptions"
         android:drawSelectorOnTop="true" />
+
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:text="Add Medication"
+        android:id="@+id/addMed"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="80dp"
+        android:background="@color/colorAccent"
         android:onClick="touchAddMed"
-        android:background="@color/colorAccent"/>
+        android:padding="8dp"
+        android:text="@string/addMedication"
+        android:textColor="#fff"
+        android:textSize="14sp" />
 
 </LinearLayout>

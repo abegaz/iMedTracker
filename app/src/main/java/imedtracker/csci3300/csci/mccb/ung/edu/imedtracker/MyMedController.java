@@ -8,18 +8,16 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class MyMedController extends AppCompatActivity {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.my_med_view);
-        setTitle("My Medications");
+        setTitle("My Medication");
 
         final ArrayList<String> pillName = new ArrayList<>();
         final ArrayList<Integer> doseCount = new ArrayList<>();
@@ -30,7 +28,7 @@ public class MyMedController extends AppCompatActivity {
         {
             pillName.add(pill1.getPillName());
             doseCount.add(pill1.getDoseCount());
-            doseFrequency.add(pill1.getDoseCount());
+            doseFrequency.add(pill1.getDoseFrequency());
         }
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, pillName);
         ListView listView = (ListView) findViewById(R.id.myMedListView);
@@ -40,11 +38,10 @@ public class MyMedController extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                Toast.makeText(MyMedController.this, pillName.toString(),  Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(MyMedController.this, MedDetailController.class);
                 String tokenPillName = pillName.get(position).toString();
-                Integer tokenDoseCount = Integer.parseInt(doseCount.get(position).toString());
-                Integer tokenDoseFrequency = Integer.parseInt(doseFrequency.get(position).toString());
+                String tokenDoseCount = doseCount.get(position).toString();
+                String tokenDoseFrequency = doseFrequency.get(position).toString();
                 intent.putExtra("pillName", tokenPillName);
                 intent.putExtra("doseCount", tokenDoseCount);
                 intent.putExtra("doseFrequency", tokenDoseFrequency);

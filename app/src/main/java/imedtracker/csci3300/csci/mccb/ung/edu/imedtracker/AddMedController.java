@@ -23,68 +23,83 @@ public class AddMedController extends AppCompatActivity {
         DatabaseHelper dbPill = new DatabaseHelper(this);
         EditText txtPillName = findViewById(R.id.txtPillName);
         EditText txtDoseCount = findViewById(R.id.txtDoseCount);
-        Spinner spinnerFrequency = findViewById(R.id.spinnerFrequency);
+        Spinner spinnerFrequency = findViewById(R.id.doseFrequency);
         switch (spinnerFrequency.getSelectedItem().toString())
         {
             case "1 Hour":
             {
                 freqValue = 1;
+                break;
             }
             case "2 Hours":
             {
                 freqValue = 2;
+                break;
             }
             case "3 Hours":
             {
                 freqValue = 3;
+                break;
             }
             case "4 Hours":
             {
                 freqValue = 4;
+                break;
             }
             case "5 Hours":
             {
                 freqValue = 5;
+                break;
             }
             case "6 Hours":
             {
                 freqValue = 6;
+                break;
             }
             case "8 Hours":
             {
                 freqValue = 8;
+                break;
             }
             case "10 Hours":
             {
                 freqValue = 10;
+                break;
             }
             case "12 Hours":
             {
                 freqValue = 12;
+                break;
             }
             case "1 Day":
             {
                 freqValue = 24;
+                break;
             }
             case "2 Days":
             {
                 freqValue = 48;
+                break;
             }
             case "3 Days":
             {
                 freqValue = 72;
+                break;
             }
             case "4 Days":
             {
                 freqValue = 96;
+                break;
             }
             case "1 Week":
             {
                 freqValue = 168;
+                break;
             }
             case "2 Weeks":
             {
                 freqValue = 336;
+                break;
             }
         }
         pill.setPillName(txtPillName.getText().toString());

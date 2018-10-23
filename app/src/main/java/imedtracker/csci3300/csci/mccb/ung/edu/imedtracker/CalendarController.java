@@ -14,6 +14,7 @@ public class CalendarController extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.calendar_view);
+        setTitle("Calendar");
         simpleCalendarView = (CalendarView) findViewById(R.id.simpleCalendarView); // get the reference of CalendarView
         simpleCalendarView.setDate(System.currentTimeMillis(), false, true);
         // perform setOnDateChangeListener event on CalendarView
