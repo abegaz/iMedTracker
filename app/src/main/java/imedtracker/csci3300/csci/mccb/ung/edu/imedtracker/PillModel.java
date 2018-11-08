@@ -5,6 +5,8 @@ public class PillModel {
     private int doseCount;
     private int doseFrequency;
     private int pillId;
+    private int alarmHour;
+    private int alarmMin;
 
     public int getPillId() {
 
@@ -46,15 +48,37 @@ public class PillModel {
         this.doseFrequency = doseFrequency;
     }
 
+    public int getAlarmHour() {
+
+        return alarmHour;
+    }
+
+    public void setAlarmHour(int alarmHour) {
+
+        this.alarmHour = alarmHour;
+    }
+
+    public int getAlarmMin() {
+
+        return alarmMin;
+    }
+
+    public void setAlarmMin(int alarmMin) {
+
+        this.alarmMin = alarmMin;
+    }
+
     public PillModel() {
 
     }
 
-    public PillModel(String pillName, int doseCount, int doseFrequency) {
+    public PillModel(String pillName, int doseCount, int doseFrequency, int alarmHour, int alarmMin) {
 
         this.pillName = pillName;
         this.doseCount = doseCount;
         this.doseFrequency = doseFrequency;
+        this.alarmHour = alarmHour;
+        this.alarmMin = alarmMin;
     }
 
     @Override
@@ -63,6 +87,8 @@ public class PillModel {
                 "pillName='" + pillName + '\'' +
                 "doseCount='" + doseCount + '\'' +
                 "doseFrequency='" + doseFrequency + '\'' +
+                "alarmHour='" + alarmHour + '\'' +
+                "alarmMin='" + alarmMin + '\'' +
                 ", pillId=" + pillId +
                 '}';
     }

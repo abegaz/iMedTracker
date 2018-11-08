@@ -59,16 +59,40 @@
         android:entries="@array/doseFrequencyOptions"
         android:drawSelectorOnTop="true" />
 
+    <TextView
+        android:id="@+id/txtAlarmTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textAlignment="center"
+        android:ems="10"
+        android:text="No alarm set."
+        android:textColor="#d6d6d6"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/alarmButton"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="#d6d6d6"
+        android:padding="8dp"
+        android:text="@string/alarmTime"
+        android:textColor="#000"
+        android:textSize="14sp" />
+
     <Button
         android:id="@+id/addMed"
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="60dp"
         android:background="@color/colorAccent"
         android:onClick="touchAddMed"
         android:padding="8dp"
         android:text="@string/addMedication"
         android:textColor="#fff"
         android:textSize="14sp" />
+
+
 
 </LinearLayout>

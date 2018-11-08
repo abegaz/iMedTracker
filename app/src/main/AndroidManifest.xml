@@ -40,6 +40,9 @@
         <activity
             android:name=".SettingsController"
             android:parentActivityName=".NavController" />
+
+        <receiver android:name=".AlertReceiver" />
+
     </application>
 
 </manifest>
