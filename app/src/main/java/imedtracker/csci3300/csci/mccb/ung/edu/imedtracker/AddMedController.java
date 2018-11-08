@@ -20,6 +20,7 @@ import java.util.Calendar;
 
 public class AddMedController extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener {
     int freqValue;
+    Calendar c = Calendar.getInstance();
 
     private TextView txtAlarmTime;
 
@@ -42,15 +43,13 @@ public class AddMedController extends AppCompatActivity implements TimePickerDia
 
     }
 
-    @Override
+   @Override
     public void onTimeSet(TimePicker view, int selectedHour, int selectedMin) {
-        Calendar c = Calendar.getInstance();
         c.set(Calendar.HOUR_OF_DAY, selectedHour);
         c.set(Calendar.MINUTE, selectedMin);
         c.set(Calendar.SECOND, 0);
 
         updateTimeText(c);
-        startAlarm(c);
     }
 
     public void updateTimeText(Calendar c) {
@@ -160,6 +159,8 @@ public class AddMedController extends AppCompatActivity implements TimePickerDia
         pill.setPillName(txtPillName.getText().toString());
         pill.setDoseCount(Integer.parseInt(txtDoseCount.getText().toString()));
         pill.setDoseFrequency(freqValue);
+
+        startAlarm(c);
 
         Boolean isAdded = dbPill.insertPill(pill);
         if (isAdded) {
