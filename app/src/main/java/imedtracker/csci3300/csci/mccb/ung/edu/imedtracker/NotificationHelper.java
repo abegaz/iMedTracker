@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
+import android.widget.Toast;
 
 public class NotificationHelper extends ContextWrapper {
     public static final String alarmID = "alarmID";
@@ -50,6 +51,7 @@ public class NotificationHelper extends ContextWrapper {
         Intent takeIntent = new Intent("Take");
         Intent snoozeIntent = new Intent("Snooze");
 
+
         PendingIntent takePendingIntent = PendingIntent.getBroadcast(this,
                 2, takeIntent, PendingIntent.FLAG_UPDATE_CURRENT);
         PendingIntent snoozePendingIntent = PendingIntent.getBroadcast(this,
@@ -81,7 +83,7 @@ public class NotificationHelper extends ContextWrapper {
         PendingIntent okPendingIntent = PendingIntent.getBroadcast(this,
                 2, okIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        return new NotificationCompat.Builder(getApplicationContext(), alarmID)
+        return new NotificationCompat.Builder(getApplicationContext(), lowDoseID)
                 .setSmallIcon(R.drawable.ic_notification)
                 .setContentTitle(title)
                 .setContentText(message)

@@ -31,9 +31,9 @@ public class LogInController extends AppCompatActivity {
         String password = txtPassword.getText().toString();
         user.setEmail(email);
         user.setPassword(password);
-        Boolean isAdded = dbUser.getLoginInfo(user);
+        Boolean isTrue = dbUser.getLoginInfo(user);
         if(!email.isEmpty() || !password.isEmpty()) {
-            if (isAdded) {
+            if (isTrue) {
                 Toast.makeText(this, "User log in successful.", Toast.LENGTH_LONG).show();
                 Log.d("Login", "Login is successful.");
                 //An Intent is a messaging object you can use to request an action from another app component.

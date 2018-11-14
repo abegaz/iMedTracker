@@ -40,6 +40,9 @@
         <activity
             android:name=".SettingsController"
             android:parentActivityName=".NavController" />
+        <activity
+            android:name=".ChangePassController"
+            android:parentActivityName=".SettingsController" />
 
         <receiver android:name=".AlertReceiver" />
 
