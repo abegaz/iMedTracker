@@ -48,8 +48,8 @@ public class NotificationHelper extends ContextWrapper {
         PendingIntent contentIntent = PendingIntent.getActivity(this,
                 0, activityIntent, 0);
 
-        Intent takeIntent = new Intent("Take");
-        Intent snoozeIntent = new Intent("Snooze");
+        Intent takeIntent = new Intent(this, TakeReceiver.class);
+        Intent snoozeIntent = new Intent(this, SnoozeReceiver.class);
 
 
         PendingIntent takePendingIntent = PendingIntent.getBroadcast(this,

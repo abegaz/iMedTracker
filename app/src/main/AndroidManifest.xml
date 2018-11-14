@@ -45,6 +45,8 @@
             android:parentActivityName=".SettingsController" />
 
         <receiver android:name=".AlertReceiver" />
+        <receiver android:name=".TakeReceiver"/>
+        <receiver android:name=".SnoozeReceiver"/>
 
     </application>
 
