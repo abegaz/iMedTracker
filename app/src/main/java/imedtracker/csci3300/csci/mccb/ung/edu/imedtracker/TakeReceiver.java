@@ -9,5 +9,7 @@ public class TakeReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         Toast.makeText(context, "Medication taken.", Toast.LENGTH_LONG).show();
+
+
     }
 }

@@ -13,6 +13,5 @@ public class AlertReceiver extends BroadcastReceiver {
         NotificationHelper notificationHelper = new NotificationHelper(context);
         NotificationCompat.Builder notificationAlarm = notificationHelper.getAlarmChannelNotification("Medication Alarm", "It's time to take your medication.");
         notificationHelper.getManager().notify(1, notificationAlarm.build());
-
     }
 }

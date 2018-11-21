@@ -121,9 +121,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return true;
     }
 
-    public boolean getPillInfo(PillModel pill) {
+    public boolean getPillName(PillModel pill) {
         SQLiteDatabase db = this.getReadableDatabase();
-        String query = "Select PILLNAME, DOSECOUNT, DOSEFREQUENCY FROM " + TABLE_PILL + " WHERE PILLNAME = '"+pill.getPillName()+"'";
+        String query = "Select PILLNAME FROM " + TABLE_PILL + " WHERE PILLID = '"+1+"'";
         Cursor resultSet = db.rawQuery(query, null);
         if(resultSet.getCount()== 0)
             return false;

@@ -26,13 +26,20 @@ public class NotificationHelper extends ContextWrapper {
     }
 
     private void createChannels() {
-        NotificationChannel notificationChannel = new NotificationChannel(alarmID, alarmName, NotificationManager.IMPORTANCE_DEFAULT);
-        notificationChannel.enableLights(true);
-        notificationChannel.enableVibration(true);
-        notificationChannel.setLightColor(R.color.colorPrimary);
-        notificationChannel.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
+        NotificationChannel alarmNotificationChannel = new NotificationChannel(alarmID, alarmName, NotificationManager.IMPORTANCE_DEFAULT);
+        alarmNotificationChannel.enableLights(true);
+        alarmNotificationChannel.enableVibration(true);
+        alarmNotificationChannel.setLightColor(Color.BLUE);
+        alarmNotificationChannel.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
 
-        getManager().createNotificationChannel(notificationChannel);
+        NotificationChannel doseNotificationChannel = new NotificationChannel(lowDoseID, lowDoseName, NotificationManager.IMPORTANCE_DEFAULT);
+        doseNotificationChannel.enableLights(true);
+        doseNotificationChannel.enableVibration(true);
+        doseNotificationChannel.setLightColor(Color.GREEN);
+        doseNotificationChannel.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
+
+
+        getManager().createNotificationChannel(alarmNotificationChannel);
     }
 
     public NotificationManager getManager() {
@@ -68,7 +75,8 @@ public class NotificationHelper extends ContextWrapper {
                 .setAutoCancel(true)
                 .setOnlyAlertOnce(true)
                 .addAction(R.mipmap.ic_launcher, "Take", takePendingIntent)
-                .addAction(R.mipmap.ic_launcher, "Snooze", snoozePendingIntent);
+                .addAction(R.mipmap.ic_launcher, "Snooze", snoozePendingIntent)
+                .setAutoCancel(true);
 
     }
 
@@ -89,11 +97,12 @@ public class NotificationHelper extends ContextWrapper {
                 .setContentText(message)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setCategory(NotificationCompat.CATEGORY_MESSAGE)
-                .setColor(Color.BLUE)
+                .setColor(Color.GREEN)
                 .setContentIntent(contentIntent)
                 .setAutoCancel(true)
                 .setOnlyAlertOnce(true)
-                .addAction(R.mipmap.ic_launcher, "Ok", okPendingIntent);
+                .addAction(R.mipmap.ic_launcher, "Ok", okPendingIntent)
+                .setAutoCancel(true);
 
     }
 }
