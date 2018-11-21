@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:gravity="center_vertical|center_horizontal"
+    android:rowCount="4"
+    android:columnCount="1"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient"
+    tools:context="imedtracker.csci3300.csci.mccb.ung.edu.imedtracker.ChangePassController">
+
+    <EditText
+        android:id="@+id/firstName"
+        android:layout_width="225dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:background="#11000000"
+        android:drawableStart="@drawable/ic_action_user"
+        android:ems="10"
+        android:hint="@string/prompt_firstName"
+        android:inputType="textPersonName"
+        android:textColorHint="#d6d6d6"
+        android:textColor="#d6d6d6"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/lastName"
+        android:layout_width="225dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="20dp"
+        android:background="#11000000"
+        android:drawableStart="@drawable/ic_action_user"
+        android:ems="10"
+        android:hint="@string/prompt_lastName"
+        android:inputType="textPersonName"
+        android:textColorHint="#d6d6d6"
+        android:textColor="#d6d6d6"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/userEmail"
+        android:layout_width="225dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="20dp"
+        android:background="#11000000"
+        android:drawableStart="@drawable/email_icon"
+        android:ems="10"
+        android:hint="@string/prompt_email"
+        android:inputType="textEmailAddress"
+        android:textColorHint="#d6d6d6"
+        android:textColor="#d6d6d6"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/oldPass"
+        android:layout_width="225dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="20dp"
+        android:background="#11000000"
+        android:drawableStart="@drawable/ic_action_pass"
+        android:ems="10"
+        android:hint="Enter Old Password"
+        android:inputType="number"
+        android:textColorHint="#d6d6d6"
+        android:textColor="#d6d6d6"
+        android:textSize="16sp" />
+    <EditText
+        android:id="@+id/newPass"
+        android:layout_width="225dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="20dp"
+        android:background="#11000000"
+        android:drawableStart="@drawable/ic_action_pass"
+        android:ems="10"
+        android:hint="Enter New Password"
+        android:inputType="number"
+        android:textColorHint="#d6d6d6"
+        android:textColor="#d6d6d6"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/addMed"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="60dp"
+        android:background="@color/colorAccent"
+        android:onClick="touchChangePassword"
+        android:padding="8dp"
+        android:text="Change Password"
+        android:textColor="#fff"
+        android:textSize="14sp" />
+
+</LinearLayout>

@@ -79,7 +79,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         if(result == -1)
             return false;
         else
-
             return true;
     }
 
@@ -95,6 +94,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return true;
     }
 
+    public Boolean deleteInfo(UserModel user) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String oldPassword;
+        oldPassword= getSecurePassword(user.getOldPassword(),    "iMedTracker");
+        String query = "PASSWORD= '"+oldPassword+"'";
+        long result = db.delete(TABLE_USER, query,null);
+        if (result == -1)
+            return false;
+        else
+            return true;
+    }
 
     // PILL TABLE METHODS //
 
@@ -111,7 +121,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return true;
     }
 
-    public Boolean getPillInfo(PillModel pill) {
+    public boolean getPillInfo(PillModel pill) {
         SQLiteDatabase db = this.getReadableDatabase();
         String query = "Select PILLNAME, DOSECOUNT, DOSEFREQUENCY FROM " + TABLE_PILL + " WHERE PILLNAME = '"+pill.getPillName()+"'";
         Cursor resultSet = db.rawQuery(query, null);

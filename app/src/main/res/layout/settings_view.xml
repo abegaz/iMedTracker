@@ -1,9 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center_vertical|center_horizontal"
+    android:background="@drawable/gradient"
     tools:context="imedtracker.csci3300.csci.mccb.ung.edu.imedtracker.SettingsController">
 
-</android.support.constraint.ConstraintLayout>
+    <Button
+        android:id="@+id/button"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:background="@color/colorAccent"
+        android:onClick="touchChangePass"
+        android:padding="10dp"
+        android:text="Change Password"
+        android:textColor="#fff"
+        android:textSize="14sp" />
+
+</LinearLayout>
